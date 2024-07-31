@@ -27,6 +27,11 @@ struct ImagesView: View {
             }
             .navigationTitle("Images")
             .navigationBarTitleDisplayMode(.large)
+            .toolbar {
+                Button("Invalidate Cache") {
+                    viewModel.clearCache()
+                }
+            }
         }
         .task {
             await viewModel.fetchImages()

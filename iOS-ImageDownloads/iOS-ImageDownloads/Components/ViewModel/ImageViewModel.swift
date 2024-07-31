@@ -18,5 +18,11 @@ final class ImageViewModel: ObservableObject {
             self.images = images ?? []
         }
     }
+    
+    func clearCache() {
+        Task {
+           await ImageCache.shared.invalidate()
+        }
+    }
 }
 
